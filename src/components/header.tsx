@@ -34,17 +34,19 @@ export default async function Header() {
               <Link href={"/room/sfea"}>Try Demo</Link>
             </Button> */}
 
-            <ModeToggle />
 
-            <Button>
+            <Button className="rounded-full">
               <Link
-                href={"/login"}
+                href={"/auth"}
                 className="font-semibold flex items-center gap-2"
               >
                 Get Started{" "}
                 <ArrowUpRight className="inline" width={16} height={16} />
               </Link>
             </Button>
+
+            <ModeToggle />
+
           </div>
         </div>
       </nav>
