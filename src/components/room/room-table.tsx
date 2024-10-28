@@ -9,7 +9,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Copy, Edit, Edit2, Share } from "lucide-react";
+import { UserPlus, Trash2 } from "lucide-react";
+import { Button } from "../ui/button";
 
 const invoices = [
   {
@@ -29,18 +30,6 @@ const invoices = [
     paymentStatus: "Unpaid",
     totalAmount: "$350.00",
     paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
   },
   {
     invoice: "INV006",
@@ -64,9 +53,8 @@ export const RoomTable = () => {
         <TableHeader>
           <TableRow>
             <TableHead>Invoices</TableHead>
-            <TableHead>Payment Status</TableHead>
-            <TableHead>Total Amount</TableHead>
-            <TableHead>Payment Method</TableHead>
+            <TableHead>Room Name</TableHead>
+            <TableHead>Created At</TableHead>
             <TableHead>Action</TableHead>
           </TableRow>
         </TableHeader>
@@ -75,23 +63,22 @@ export const RoomTable = () => {
             <TableRow key={invoice.invoice}>
               <TableCell>{invoice.invoice}</TableCell>
               <TableCell>{invoice.paymentStatus}</TableCell>
-              <TableCell>{invoice.totalAmount}</TableCell>
               <TableCell>{invoice.paymentMethod}</TableCell>
               <TableCell>
-                <div className="flex-row inline-flex gap-2 items-center">
-                  <Copy width={20} height={20} className="mr-2" />{" "}
-                  <Share width={20} height={20} />
+                <div className="flex gap-4 items-center">
+                  <div className="flex items-center p-2 rounded">
+                    <UserPlus width={20} height={20} className="mr-1" />
+                    <span>Invite</span>
+                  </div>
+                  <Button className="flex items-center p-2 bg-red-100 text-red-800 rounded hover:bg-red-200">
+                    <Trash2 width={16} height={16} className="mr-1" />
+                    <span>Delete</span>
+                  </Button>
                 </div>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
-        {/* <TableFooter>
-        <TableRow>
-          <TableCell colSpan={3}>Total</TableCell>
-          <TableCell className="text-right">$2,500.00</TableCell>
-        </TableRow>
-      </TableFooter> */}
       </Table>
     </div>
   );

@@ -1,4 +1,5 @@
 import { CreateRoom } from "@/components/room/create-room";
+import { JoinRoom } from "@/components/room/join-room";
 import { RoomTable } from "@/components/room/room-table";
 import { Table } from "@/components/ui/table";
 import React from "react";
@@ -14,7 +15,10 @@ const AuthPage = () => {
         </p>
       </div>
       <div>
-        <CreateRoom />
+        <div className="flex justify-end p-4 gap-4">
+          <CreateRoom />
+          <JoinRoom />
+        </div>
         <RoomTable />
       </div>
     </main>
